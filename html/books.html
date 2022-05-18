@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+  <!-- This is the product landing page of the website -->
+  <head>
+    <title>Books | Maple Books</title>
+
+    <meta charset="utf-8" />
+    <meta name="author" content="Kritan Thapa" />
+    <meta name="copyright" content="Maple Books 2010-2022" />
+    <meta name="description" content="buy books" />
+
+    <link rel="stylesheet" type="text/css" href="../css/global.css" />
+    <link rel="icon" href="../favicon.ico" />
+
+    <style type="text/css">
+      /* ==================
+       1. global styling
+       ==================*/
+
+      main {
+        margin: 50px 18%;
+      }
+
+      main h1 {
+        margin: 60px 0;
+      }
+
+      /* ==================
+      2. slideshow design
+       ==================*/
+
+      /* 2.1 slide show styling */
+
+      #slide-show {
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+        z-index: 0;
+        width: 100%;
+      }
+
+      #slide-show img {
+        width: 100%;
+        height: 380px;
+        display: block;
+        margin: auto;
+      }
+
+      /* 2.2 slideshow indicator styling */
+
+      .slide-show-indicator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 15px;
+
+        margin-top: 20px;
+      }
+
+      .slide-show-indicator div {
+        height: 6px;
+        width: 6px;
+
+        border-radius: 50%;
+
+        background: white;
+        border: solid 2px var(--primary-color);
+
+        transition: background 2s ease-in-out;
+      }
+
+      /* 2.3 slideshow caption */
+
+      .slide-show-caption {
+        padding: 16px 0;
+        margin: 40px 0;
+        text-align: center;
+
+        border-top: 0.5px solid black;
+        border-bottom: 0.5px solid black;
+
+        font-family: "Segoe UI", sans-serif;
+        font-size: 20px;
+      }
+
+      /* ===========================
+        3. best sellers table design
+       =========================== */
+
+      /*3.1 table layout*/
+
+      .top-selling {
+        width: 100%;
+      }
+
+      .top-selling td {
+        padding: 10px;
+        vertical-align: top;
+        width: 20%;
+
+        transition: transform 250ms ease-in;
+        position: relative;
+      }
+
+      .top-selling td:hover {
+        transform: scale(1.05);
+      }
+
+      .top-selling img {
+        width: 165px;
+        height: 220px;
+        margin-bottom: 5px;
+        clip-path: polygon(0 0, 100% 0, 100% 0%, 100% 100%, 0 100%);
+
+        transition: clip-path 500ms ease-in-out 50ms;
+      
+      }
+
+
+      .top-selling img:hover {
+        clip-path: polygon(0 0, 85% 0, 100% 10%, 100% 100%, 0 100%);
+        opacity: 0.5;
+      }
+
+      .top-selling td:hover::after {
+        content: 'Buy';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+
+        
+
+      }
+
+      /* 3.2 typography */
+
+      .book-name,
+      .book-author,
+      .book-price {
+        margin: 2px 4px;
+        font-family: Georgia, serif;
+      }
+
+      .top-selling .book-name {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .top-selling .book-author {
+        font-size: 15px;
+        opacity: 0.8;
+      }
+
+      .top-selling .book-price {
+        font-family: sans-serif;
+        font-size: 12px;
+        opacity: 0.6;
+      }
+
+      /* ========================
+        4. top genres table styling
+       ========================= */
+
+      /* 4.1 table layout */
+
+      .top-genres {
+        width: 100%;
+      }
+
+      .top-genres td {
+        width: 33%;
+        vertical-align: top;
+        padding: 0 8px;
+        transition: transform 250ms ease-in;
+      }
+
+      .top-genres td:hover {
+        transform: scale(1.01);
+      }
+
+      .top-genres img {
+        width: 100%;
+        max-height: 300px;
+      }
+
+      /* 4.2 typography */
+
+      .genre-name,
+      .genre-description {
+        margin: 8px 4px;
+        font-family: Georgia, serif;
+      }
+
+      .top-genres .genre-name {
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .top-genres .genre-description {
+        font-size: 16px;
+        opacity: 0.8;
+        text-align: justify;
+      }
+
+      /* ====================
+        5. picks of the month
+       ==================== */
+
+      .picks-of-the-month {
+        width: 100%;
+        height: 350px;
+      }
+
+      /* end of styling */
+    </style>
+  </head>
+
+  <body>
+    <header id="header">
+      <div class="header--logo">
+        <a href="../index.html">
+          <img alt="company-logo" src="../pictures/book.png" />
+          <span>Maple Books</span>
+        </a>
+      </div>
+      <div class="header--backdrop">
+        <img src="../pictures/header--backdrop-left.jpg" />
+      </div>
+    </header>
+
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./books.html" class="active-page">Books</a>
+      <a href="./blog.html">Blog</a>
+      <a href="./references.html">References</a>
+      <a href="./contact.html">Contact Us</a>
+    </nav>
+
+    <main>
+      <h1>Featured Currently on Maple Books</h1>
+
+      <!-- start of slideshow section -->
+      <div id="slide-show">
+        <!-- this is the div for images to be displayed. refer to script section for more info -->
+      </div>
+
+      <!-- slideshow indicators. work based on current image. -->
+      <div class="slide-show-indicator">
+        <div id="slide-show-indicator-1"></div>
+        <div id="slide-show-indicator-2"></div>
+        <div id="slide-show-indicator-3"></div>
+      </div>
+
+      <!-- company motto -->
+      <div class="slide-show-caption">
+        Buy your books from Maple Books, the most beloved and trusted online
+        bookstore.
+      </div>
+      <!-- end of slideshow section -->
+
+      <br /><br />
+
+      <!-- start of best sellers section -->
+
+      <h1 style="margin-top: 15px" id="best-sellers">Best Sellers</h1>
+
+      <!-- The best sellers books section is defined as follows.
+
+            - The entire section is a table.
+            - Book information is wrapped around <tr> and <td> tags.
+            - <tr> represents a row of books.
+            - <td> represents an individual book.
+
+                The strucuture is defined as follows:
+                
+                <tr> - single row
+                  <td> - individual book / acts as a wrapper
+                    <img> - Cover art for the book
+                    <p> Name of the book</p>
+                    <p> Author of the book</p>
+                    <p> Price of the book</p>
+                  </td> - end of individual books
+                </tr>
+    -->
+
+      <table class="top-selling" onclick=alert('The_service_is_currently_unavailable')>
+        <tr>
+          <td>
+            <img src="../pictures/book-cover/bookcover (1).jpg" />
+            <p class="book-name">Inspiration Speaks</p>
+            <p class="book-author">Author</p>
+            <p class="book-price">NRs 1400.00</p>
+          </td>
+
+          <td>
+            <img src="../pictures/book-cover/bookcover (2).jpg" />
+            <p class="book-name">Diamond of The Cloud</p>
+            <p class="book-author">Ashon Rosemore</p>
+            <p class="book-price">NRs 1600.00</p>
+          </td>
+
+          <td>
+            <img src="../pictures/book-cover/bookcover (3).jpg" />
+            <p class="book-name">The Dreaming Arts</p>
+            <p class="book-author">Tom Maloney</p>
+            <p class="book-price">NRs 1800.00</p>
+          </td>
+
+          <td>
+            <img src="../pictures/book-cover/bookcover (4).jpg" />
+            <p class="book-name">The Hobbit</p>
+            <p class="book-author">J.R.R. Tolkien</p>
+            <p class="book-price">NRs 1500.00</p>
+          </td>
+
+          <td>
+            <img src="../pictures/book-cover/bookcover (5).jpg" />
+            <p class="book-name">The World of Abstract Art</p>
+            <p class="book-author">Emily Robbins</p>
+            <p class="book-price">NRs 1700.00</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <img src="../pictures/book-cover/bookcover (6).jpg" />
+            <p class="book-name">The Queen of Hearts</p>
+            <p class="book-author">Kimmery Martin</p>
+            <p class="book-price">NRs 1400.00</p>
+          </td>
+
+          <td>
+            <img src="../pictures/book-cover/bookcover (7).jpg" />
+            <p class="book-name">JAWS</p>
+            <p class="book-author">Peter Benchley</p>
+            <p class="book-price">NRs 2100.00</p>
+          </td>
+
+          <td>
+            <img src="../pictures/book-cover/bookcover (8).jpg" />
+            <p class="book-name">Guide To: Redstone</p>
+            <p class="book-author">Mojang</p>
+            <p class="book-price">NRs 4500.00</p>
+          </td>
+
+          <td>
+            <img src="../pictures/book-cover/bookcover (9).jpg" />
+            <p class="book-name">Vacant in the Visions</p>
+            <p class="book-author">Palmiro Brahler</p>
+            <p class="book-price">NRs 1400.00</p>
+          </td>
+
+          <td>
+            <img src="../pictures/book-cover/bookcover (10).jpg" />
+            <p class="book-name">Victory</p>
+            <p class="book-author">Joseph Conrad</p>
+            <p class="book-price">NRs 900.00</p>
+          </td>
+        </tr>
+      </table>
+
+      <!-- end of best sellers section -->
+
+      <!-- ========================================= -->
+
+      <!-- start of top genres section -->
+
+      <h1>Most Picked Genres</h1>
+
+      <!-- The top genres books section is defined as follows.
+
+            - It is similar to that of top selling books / refer to top selling.
+
+                The strucuture is defined as follows:
+                
+                <tr> - single row
+                  <td> - individual genre / acts as a wrapper
+                    <img> - Suitable art for the genre
+                    <p> Name of the genre</p>
+                    <p> Description of the genre</p>
+                  </td> - end of individual genre
+                </tr>
+    -->
+      <table class="top-genres">
+        <tr>
+          <td>
+            <img src="../pictures/genres/action.jpg" />
+            <p class="genre-name">Action & adventure</p>
+            <p class="genre-description">
+              Set out on an exciting adventure with your favourite characters and dive in right into the action. 
+              Maple Books catalogue consists of more than 200 action and adventure books to choose from.
+            </p>
+          </td>
+
+          <td style="padding-top: 100px">
+            <img src="../pictures/genres/biography.jpg" />
+            <p class="genre-name">Auto-biography</p>
+            <p class="genre-description">
+              Motivate yourself and read about different personalities of the world from different eras. 
+              Auto-biographies are readers favourite books to gain moral lessons. 
+              Our catalogue consists of more than 100 auto-biography genre books.
+            </p>
+          </td>
+
+          <td>
+            <img src="../pictures/genres/sci-fi.jpg" />
+            <p class="genre-name">Science-fiction</p>
+            <p class="genre-description">
+              Take a break from the physical world and the limits of the current science.
+              Sci-fi genre books are our best sellers for over 2 years.
+              Our catalogue consists of over 150 science-fiction books.
+            </p>
+          </td>
+        </tr>
+      </table>
+
+      <!-- end of top genres section -->
+
+      <h1>Monthly Picks</h1>
+      <img src="../pictures/monthly-picks.jpg" class="picks-of-the-month" />
+    </main>
+
+    <footer>
+      <a href="#header"><button>Back to Top</button></a>
+
+      <div class="footer--content">
+        <ul>
+          <a href="./books.html">
+            <h1>Buy Books</h1>
+            <li>Best Selling</li>
+            <li>Top Genres</li>
+            <li>Monthly Picks</li>
+          </a>
+        </ul>
+
+        <ul>
+          <a href="./blog.html">
+            <h1>Our Blogs</h1>
+            <li>Internet and its impact</li>
+            <li>More coming soon...</li>
+          </a>
+        </ul>
+
+        <ul>
+          <a href="./references.html">
+            <h1>References</h1>
+            <li>AbeBooks</li>
+            <li>thriftBooks</li>
+            <li>Riot Games</li>
+            <li>Flutter</li>
+            <li>Barnes & Noble</li>
+          </a>
+        </ul>
+
+        <ul>
+          <a href="./contact.html">
+            <h1>Help and Support</h1>
+            <li>Contact Us</li>
+            <li>Tell more about yourself</li>
+          </a>
+        </ul>
+      </div>
+
+      <div class="footer--cpy">
+        While using this website, you agree to have read and accepted our terms
+        of use, cookies and privacy policy.<br />
+        Copyright &copy; Maple Books 2010-2022. All Rights Reserved. <br />
+        Butterfly Avenue 69, Kathmandu, Nepal
+      </div>
+    </footer>
+  </body>
+
+  <script type="text/javascript">
+    // the script is for the slideshow. it changes the image in the slide-show div //
+
+    const slideshow = document.getElementById("slide-show"); //div where the image is displayed
+    const imgArray = ["slideshow 1", "slideshow 2", "slideshow 3"]; //array of images
+    const indicatorArray = [
+      //array for indicators
+      document.getElementById("slide-show-indicator-1"),
+      document.getElementById("slide-show-indicator-2"),
+      document.getElementById("slide-show-indicator-3"),
+    ];
+    let index = 0; //index of current image
+
+    imageSetter(); //calling the function once
+
+    /* imageSetter() function changes the current image in the div. 
+        it sets the opacity of the slideshow div to 1.
+        it works based on the current index.
+        it calls the indexSetter() function after a delay of 4000ms
+    */
+    function imageSetter() {
+      slideshow.innerHTML = `<img src="../pictures/slideshow/${imgArray[index]}.jpg">`;
+      slideshow.style.opacity = 1;
+      indicatorArray[index].style.backgroundColor = "var(--primary-color)";
+
+      setTimeout("indexSetter()", 4000);
+    }
+
+    /* indexSetter() function changes the current index for the imgArray. 
+        it sets the opacity of slideshow div to 0.
+        it works by cycling through the index using if statements and increments.
+        it calls the imageSetter() function after a delay of 2000ms
+    */
+    function indexSetter() {
+      indicatorArray[index].style.backgroundColor = "white";
+
+      if (index < imgArray.length - 1) {
+        index++;
+      } else {
+        index = 0;
+      }
+
+      slideshow.style.opacity = 0;
+      setTimeout("imageSetter()", 2000);
+    }
+
+    // the timing in the setTimeout gives the effect of the image fading in and out //
+  </script>
+</html>

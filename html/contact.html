@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+  <!-- This is the contatct page of the website -->
+  <head>
+    <title>Contact | Maple Books</title>
+
+    <meta charset="utf-8" />
+    <meta name="author" content="Kritan Thapa" />
+    <meta name="copyright" content="Maple Books 2010-2022" />
+    <meta name="description" content="contact page" />
+
+    <link rel="stylesheet" type="text/css" href="../css/global.css" />
+    <link rel="icon" href="../favicon.ico" />
+
+    <style type="text/css">
+      /* ==================
+          1. form design
+        ==================*/
+
+      /* 1.1 layout */
+
+      form {
+        margin: 40px 25% 0 25%;
+        padding: 20px 50px;
+
+        box-shadow: 8px 8px 5px #ddd;
+        border: solid 1px #ddd;
+        border-radius: 16px;
+      }
+
+      /* 1.2 typography */
+
+      form h1 {
+        font-weight: normal;
+        font-family: Garamond, serif;
+        letter-spacing: -1px;
+        color: rgb(65, 150, 250);
+      }
+
+      form label,
+      form legend {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 8px;
+        margin-left: 2px;
+
+        font-family: var(--font-serif);
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      /* ==================
+        2. input boxes design
+        ==================*/
+
+      form input[type="text"],
+      form input[type="number"],
+      form input[type="email"],
+      form select,
+      form textarea {
+        box-sizing: border-box;
+        width: 98%;
+        height: 40px;
+
+        margin: 1px 2px;
+        padding: 2px 5px;
+
+        border: 1px solid rgba(74, 188, 150, 0.5);
+        background: white;
+        border-radius: 8px;
+        transition: border 0.5s;
+      }
+
+      form input[type="text"]:hover,
+      form input[type="number"]:hover,
+      form input[type="email"]:hover,
+      form select:hover,
+      form textarea:hover {
+        border-color: rgb(65, 150, 250);
+        transition: border 0.5s;
+      }
+
+      /* ======================================
+        3. form internal div (age & phone)
+        ======================================*/
+
+      .form--inner {
+        display: flex;
+        justify-content: space-between;
+
+        padding-right: 8px;
+      }
+
+      .form--inner div {
+        width: 48%;
+      }
+
+      /* ================================
+        4. radio checkbox and textarea
+        =================================*/
+
+      /* 4.1 fieldset layout for radio and checkbox groups */
+
+      fieldset {
+        border: none;
+        padding: 5px 0;
+      }
+
+      /* 4.2 radio label typography */
+
+      .form--radio label {
+        all: initial;
+        font: 15px sans-serif;
+        margin-left: 0px;
+        margin-right: 10px;
+      }
+
+      /* 4.3 checkbox layout */
+
+      .form--checkbox {
+        display: flex;
+      }
+
+      /* 4.4 checkbox label typography */
+
+      .form--checkbox label {
+        all: initial;
+        font: 15px sans-serif;
+      }
+
+      .form--checkbox h3 {
+        font-family: var(--font-serif);
+      }
+
+      /* 4.5 textarea layout */
+
+      form textarea {
+        height: 160px;
+        padding: 10px;
+      }
+
+      /* end of styling */
+    </style>
+  </head>
+
+  <body>
+    <header id="header">
+      <div class="header--logo">
+        <a href="../index.html">
+          <img alt="company-logo" src="../pictures/book.png" />
+          <span>Maple Books</span>
+        </a>
+      </div>
+      <div class="header--backdrop">
+        <img src="../pictures/header--backdrop-left.jpg" />
+      </div>
+    </header>
+
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./books.html">Books</a>
+      <a href="./blog.html">Blog</a>
+      <a href="./references.html">References</a>
+      <a href="./contact.html" class="active-page">Contact Us</a>
+    </nav>
+
+    <form id="feedback-form" name="contact-form">
+      <h1><span style="font-size: 28px">Contact </span>Maple Books</h1>
+      <p style="font-size: 12px">Fields marked with * are mandatory!</p>
+
+      <label for="user-name">Enter your name *</label>
+      <input
+        type="text"
+        id="user-name"
+        name="user-name"
+        placeholder="Your name or nickname."
+      />
+
+      <label for="user-email">Enter your email *</label>
+      <input
+        type="email"
+        id="user-email"
+        name="user-email"
+        placeholder="example@domain.com"
+      />
+
+      <div class="form--inner">
+        <div>
+          <label for="user-age">Age *</label>
+          <input
+            type="number"
+            id="user-age"
+            min="6"
+            max="256"
+            placeholder="Your age."
+          />
+        </div>
+
+        <div>
+          <label for="user-phone">Phone No. *</label>
+          <input type="text" id="user-phone" placeholder=" 9800-00-00-00" />
+        </div>
+      </div>
+
+      <label for="first-find-us">How did you first find us? *</label>
+      <select id="first-find-us">
+        <option selected disabled value="">Please choose one.</option>
+        <option value="FriendReference">
+          My friend told me about Maple Books.
+        </option>
+        <option value="Advertisement">I read a advertisement somewhere.</option>
+        <option value="Self">I found it myself.</option>
+        <option value="Others">Others</option>
+      </select>
+
+      <fieldset>
+        <legend>Where do you like to read your books?</legend>
+        <div class="form--radio">
+          <input
+            type="radio"
+            id="read-book-home"
+            name="read-book-where"
+            value="Home"
+          />
+          <label for="read-book-home">Home</label>
+
+          <input
+            type="radio"
+            id="read-book-library"
+            name="read-book-where"
+            value="Library"
+          />
+          <label for="read-book-library">Library</label>
+
+          <input
+            type="radio"
+            id="read-book-outdoors"
+            name="read-book-where"
+            value="Outdoors"
+          />
+          <label for="read-book-outdoors">Outdoors</label>
+
+          <input
+            type="radio"
+            id="read-book-ebooks"
+            name="read-book-where"
+            value="Ebooks"
+          />
+          <label for="read-book-ebooks">Ebooks</label>
+
+          <input
+            type="radio"
+            id="read-book-others"
+            name="read-book-where"
+            value="Others"
+          />
+          <label for="read-book-others">Others</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend style="margin-bottom: 0">Your favourite genres.</legend>
+        <div class="form--checkbox">
+          <div style="width: 40%">
+            <h3>Fiction</h3>
+            <input
+              type="checkbox"
+              id="fiction-1"
+              name="fiction-1"
+              value="Fantasy"
+            />
+            <label for="fiction-1">Fantasy</label> <br />
+
+            <input
+              type="checkbox"
+              id="fiction-2"
+              name="fiction-2"
+              value="ScienceFiction"
+            />
+            <label for="fiction-2">Science-fiction</label> <br />
+
+            <input
+              type="checkbox"
+              id="fiction-3"
+              name="fiction-3"
+              value="ActionAdventure"
+            />
+            <label for="fiction-3">Action & adventure</label> <br />
+
+            <input
+              type="checkbox"
+              id="fiction-4"
+              name="fiction-4"
+              value="Mystery"
+            />
+            <label for="fiction-4">Mystery</label> <br />
+
+            <input
+              type="checkbox"
+              id="fiction-5"
+              name="fiction-5"
+              value="Romance"
+            />
+            <label for="fiction-5">Romance</label> <br />
+          </div>
+          <div>
+            <h3>Non-fiction</h3>
+            <input
+              type="checkbox"
+              id="non-fiction-1"
+              name="non-fiction-1"
+              value="Biography"
+            />
+            <label for="non-fiction-1">Biography</label> <br />
+
+            <input
+              type="checkbox"
+              id="non-fiction-2"
+              name="non-fiction-2"
+              value="History"
+            />
+            <label for="non-fiction-2">History</label> <br />
+
+            <input
+              type="checkbox"
+              id="non-fiction-3"
+              name="non-fiction-3"
+              value="Travel"
+            />
+            <label for="non-fiction-3">Travel</label> <br />
+
+            <input
+              type="checkbox"
+              id="non-fiction-4"
+              name="non-fiction-4"
+              value="FoodDrink"
+            />
+            <label for="non-fiction-4">Food & Drink</label> <br />
+
+            <input
+              type="checkbox"
+              id="non-fiction-5"
+              name="non-fiction-5"
+              value="ArtPhotography"
+            />
+            <label for="non-fiction-5">Art & Photography</label> <br />
+
+            <input
+              type="checkbox"
+              id="non-fiction-6"
+              name="non-fiction-6"
+              value="Humour"
+            />
+            <label for="non-fiction-6">Humour</label> <br />
+
+            <input
+              type="checkbox"
+              id="non-fiction-7"
+              name="non-fiction-7"
+              value="ScienceTechnology"
+            />
+            <label for="non-fiction-7">Science & Technology</label> <br />
+          </div>
+        </div>
+      </fieldset>
+
+      <br />
+
+      <label for="additional-feedback"
+        >Any additional message would you like to send?</label
+      >
+      <textarea
+        id="additional-feedback"
+        placeholder="This field is optional."
+      ></textarea>
+
+      <button
+        id="submit"
+        style="width: 99%; margin: 20px 0px"
+        onclick="validateForm()"
+      >
+        Submit
+      </button>
+    </form>
+
+    <footer>
+      <a href="#header"><button>Back to Top</button></a>
+
+      <div class="footer--content">
+        <ul>
+          <a href="./books.html">
+            <h1>Buy Books</h1>
+            <li>Best Selling</li>
+            <li>Top Genres</li>
+            <li>Monthly Picks</li>
+          </a>
+        </ul>
+
+        <ul>
+          <a href="./blog.html">
+            <h1>Our Blogs</h1>
+            <li>Internet and its impact</li>
+            <li>More coming soon...</li>
+          </a>
+        </ul>
+
+        <ul>
+          <a href="./references.html">
+            <h1>References</h1>
+            <li>AbeBooks</li>
+            <li>thriftBooks</li>
+            <li>Riot Games</li>
+            <li>Flutter</li>
+            <li>Barnes & Noble</li>
+          </a>
+        </ul>
+
+        <ul>
+          <a href="./contact.html">
+            <h1>Help and Support</h1>
+            <li>Contact Us</li>
+            <li>Tell more about yourself</li>
+          </a>
+        </ul>
+      </div>
+
+      <div class="footer--cpy">
+        While using this website, you agree to have read and accepted our terms
+        of use, cookies and privacy policy.<br />
+        Copyright &copy; Maple Books 2010-2022. All Rights Reserved. <br />
+        Butterfly Avenue 69, Kathmandu, Nepal
+      </div>
+    </footer>
+
+    <script src="../script/form-validation.js"></script>
+  </body>
+</html>

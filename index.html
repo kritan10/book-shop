@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+  <!-- This is the home page/ index page of the website -->
+  <head>
+    <title>Home | Maple Books</title>
+
+    <meta charset="utf-8" />
+    <meta name="author" content="Kritan Thapa" />
+    <meta name="copyright" content="Maple Books 2010-2022" />
+    <meta name="description" content="home page" />
+
+    <link rel="stylesheet" type="text/css" href="./css/global.css" />
+    <link rel="icon" href="./favicon.ico" />
+
+    <style type="text/css">
+      /* ================
+	    1. main body design
+      ================== */
+
+      /* 1.1 main body layout */
+
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding-top: 40px;
+        margin: 0 20%;
+      }
+
+      /* 1.2 header typography */
+
+      main h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      main h2 {
+        color: var(--primary-color);
+        font-family: sans-serif;
+        font-size: 18px;
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+
+      /* ================
+	    2. main cards design
+      ================== */
+
+      /* 2.1 card layout */
+
+      .books--card,
+      .blog--card {
+        width: 100%;
+        height: fit-content;
+        margin: 20px 0;
+        justify-content: space-between;
+
+        box-shadow: 8px 8px 5px rgb(220, 220, 220);
+        border: solid 1px rgb(220, 220, 220);
+        border-radius: 16px;
+
+        display: flex;
+        transition: transform 250ms ease-in;
+      }
+
+      .books--card:hover,
+      .blog--card:hover {
+        transform: scale(1.02);
+      }
+
+      .books--card img {
+        width: 200px;
+        border-bottom-right-radius: 16px;
+        border-top-right-radius: 16px;
+      }
+
+      .blog--card img {
+        width: 200px;
+        border-bottom-left-radius: 16px;
+        border-top-left-radius: 16px;
+      }
+
+      /* 2.2 card typography */
+
+      .books--card--text,
+      .blog--card--text {
+        padding: 0 40px;
+        padding-bottom: 20px;
+        margin-top: 25px;
+      }
+
+      /* ========================
+	    3. secondary cards design
+      ========================== */
+
+      /* 3.1 secondary card layout */
+
+      .secondary--cards {
+        width: 100%;
+        margin: 20px 0;
+
+        display: flex;
+        justify-content: space-between;
+        column-gap: 20px;
+      }
+
+      .secondary--cards article {
+        box-shadow: 8px 8px 5px rgb(220, 220, 220);
+        border: solid 1px rgb(220, 220, 220);
+        border-radius: 16px;
+
+        transition: transform 250ms ease-in;
+        transform-origin: top;
+      }
+
+      .secondary--cards article:hover {
+        transform: scale(1.01);
+      }
+
+      .secondary--cards img {
+        height: 40%;
+        width: 100%;
+
+        border-top-right-radius: 16px;
+        border-top-left-radius: 16px;
+      }
+
+      .secondary--cards div {
+        padding: 8px 28px;
+      }
+
+      /* 3.2 secondary card header typography */
+
+      .secondary--cards h1 {
+        transition: color 0.5s;
+      }
+
+      .secondary--cards h1:hover {
+        transition: color 0.5s;
+        color: rgb(74, 188, 150);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- start of header section -->
+
+    <header id="header">
+      <div class="header--logo">
+        <!-- company logo linked with home page -->
+        <a href="index.html">
+          <img alt="company-logo" src="./pictures/book.png" />
+          <span>Maple Books</span>
+        </a>
+      </div>
+      <div class="header--backdrop">
+        <!-- backdrop picture -->
+        <img src="./pictures/header--backdrop-left.jpg" />
+      </div>
+    </header>
+    <!-- end of header section -->
+
+    <!-- start of navigation bar -->
+
+    <nav>
+      <a href="index.html" class="active-page">Home</a>
+      <!-- active page class is assigned to the corresponding links -->
+      <a href="./html/books.html">Books</a>
+      <a href="./html/blog.html">Blog</a>
+      <a href="./html/references.html">References</a>
+      <a href="./html/contact.html">Contact Us</a>
+    </nav>
+
+    <!-- end of navigation bar -->
+
+    <!-- 
+         - start of main content
+         - main content consists of cards that contain relevant information 
+           about the website.
+         - it is a hub linking all the pages of the website
+    -->
+
+    <main>
+      <!-- start of first card  -->
+      <article class="books--card">
+        <div class="books--card--text">
+          <h2>Humongous Catalogue</h2>
+          <h1>Browse the finest range of books</h1>
+          <p style="padding-right: 40px">
+            Fill your bookshelves with brand new verified books, the latest
+            bestsellers and collectible books.
+          </p>
+          <a href="./html/books.html"><button>Browse</button></a>
+        </div>
+
+        <img src="./pictures/main--books.jpg" />
+      </article>
+      <!-- end of first card -->
+
+      <!-- start of second card -->
+
+      <article class="blog--card">
+        <img src="./pictures/main--books.jpg" />
+
+        <div
+          class="blog--card--text"
+          style="text-align: right; padding-left: 20px"
+        >
+          <h2>Technological Advancement</h2>
+          <h1>Technology has impacted the entire human race.</h1>
+          <p>
+            We have progressed in terms of technology and life has been
+            radically improved.
+          </p>
+          <a href="./html/blog.html"
+            ><button style="margin-bottom: 20px">Read blog</button></a
+          >
+        </div>
+      </article>
+
+      <!-- end of second card -->
+
+      <!-- start of secondary cards -->
+      <div class="secondary--cards">
+        <!-- start of secondary card one -->
+        <article class="books--secondary-card">
+          <a href="./html/blog.html"
+            ><img src="./pictures/other--books.jpg" />
+            <div>
+              <h1>Reading Books</h1>
+              <p>
+                Reading books help you concentrate your mind, maintain inner
+                peace and you can gain valuable knowledge as well. Dive into the
+                wide collection of books from Maple Books and pick your
+                favourite ones.
+              </p>
+              <button>Buy books »</button>
+            </div>
+          </a>
+        </article>
+        <!-- end of secondary card one -->
+        <!-- start of secondary card two -->
+        <article class="feedback--secondary-card">
+          <a href="./html/contact.html">
+            <img src="./pictures/other--books.jpg" />
+
+            <div>
+              <h1>Contact Us</h1>
+              <p>
+                Want to learn more about Maple Books? Fill up the contact us
+                form and we will get in touch with you as soon as possible. For
+                business inquiries, refer to the contact page as well.
+              </p>
+              <button>To contact details »</button>
+            </div>
+          </a>
+        </article>
+        <!-- end of secondary card two -->
+        <!-- start of secondary card three -->
+
+        <article class="references--secondary-card">
+          <a href="./html/references.html">
+            <img src="./pictures/other--books.jpg" />
+
+            <div>
+              <h1>Our References</h1>
+              <p>
+                The website would not be possible without these sources. Check
+                out these cool websites which are awesome in their own ways.
+              </p>
+              <button>Learn more »</button>
+            </div>
+          </a>
+        </article>
+        <!-- end of secondary card three -->
+      </div>
+      <!-- end of secondary cards -->
+    </main>
+
+    <!-- end of main content -->
+
+    <footer>
+      <!-- back to top button for easier navigation -->
+      <a href="#header"><button>Back to Top</button></a>
+
+      <!-- start of footer content -->
+      <div class="footer--content">
+        <!-- footer content is unordered list wrapped in their corresponding link pages -->
+        <ul>
+          <a href="./html/books.html">
+            <h1>Buy Books</h1>
+            <li>Best Selling</li>
+            <li>Top Genres</li>
+            <li>Monthly Picks</li>
+          </a>
+        </ul>
+
+        <ul>
+          <a href="./html/blog.html">
+            <h1>Our Blogs</h1>
+            <li>Internet and its impact</li>
+            <li>More coming soon...</li>
+          </a>
+        </ul>
+
+        <ul>
+          <a href="./html/references.html">
+            <h1>References</h1>
+            <li>AbeBooks</li>
+            <li>thriftBooks</li>
+            <li>Riot Games</li>
+            <li>Flutter</li>
+            <li>Barnes & Noble</li>
+          </a>
+        </ul>
+
+        <ul>
+          <a href="./html/contact.html">
+            <h1>Help and Support</h1>
+            <li>Contact Us</li>
+            <li>Tell more about yourself</li>
+          </a>
+        </ul>
+      </div>
+      <!-- end of footer content -->
+
+      <!-- copyright notice -->
+      <div class="footer--cpy">
+        While using this website, you agree to have read and accepted our terms
+        of use, cookies and privacy policy.<br />
+        Copyright &copy; Maple Books 2010-2022. All Rights Reserved. <br />
+        Butterfly Avenue 69, Kathmandu, Nepal
+      </div>
+    </footer>
+  </body>
+</html>

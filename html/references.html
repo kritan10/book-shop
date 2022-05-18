@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+  <!-- This is the references page of the website -->
+  <head>
+    <title>References | Maple Books</title>
+
+    <meta charset="utf-8" />
+    <meta name="author" content="Kritan Thapa" />
+    <meta name="copyright" content="Maple Books 2010-2022" />
+    <meta name="description" content="references page" />
+
+    <link rel="stylesheet" type="text/css" href="../css/global.css" />
+    <link rel="icon" href="../favicon.ico" />
+
+    <style>
+      /* ================
+	    1. main body design
+      ================== */
+      * {
+        box-sizing: border-box;
+      }
+
+      main {
+        margin: 50px 15%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        position: relative;
+        max-height: auto;
+      }
+
+      /* ================
+	    2. main content design
+      ================== */
+
+      /* 2.1 container styling */
+
+      main > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 40px;
+
+        min-width: 100%;
+        position: relative;
+        height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* 2.2 content styling (wrapped by the above div container) */
+
+      main div section {
+        box-shadow: 8px 8px 5px rgb(220, 220, 220);
+        border: solid 1px rgb(220, 220, 220);
+        border-radius: 16px;
+
+        min-height: 75%;
+        width: 100%;
+        padding: 20px;
+        padding-top: 50px;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: all 1000ms ease-in-out;
+      }
+
+      /* 2.3 next and previous button designs */
+
+      main > button {
+        width: 40px;
+        height: 200px;
+        border-radius: 10px;
+        z-index: 2;
+        opacity: 1;
+        margin-top: calc(0.5 * 50vh);
+      }
+
+      main > button:hover {
+        background-color: rgb(93, 204, 156);
+      }
+
+      /* 2.4 image and image caption design  */
+      /* reference-images class is a wrapper */
+
+      .reference-images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .reference-images figure {
+        width: 100%;
+        margin: 5px;
+        padding: 5px;
+      }
+
+      .reference-images figure img {
+        display: block;
+        margin: auto;
+
+        border: 2px solid black;
+        border-radius: 6px;
+        padding: 2px;
+        margin-bottom: 10px;
+
+        transition: transform 250ms ease-in;
+      }
+
+      .reference-images figure img:hover {
+        transform: scale(1.03);
+      }
+
+      .reference-images figure figcaption {
+        font-size: 18px;
+        text-align: center;
+        font-family: var(--font-sans-serif);
+      }
+
+      /* 2.5 reference description styling */
+
+      section p {
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 60px;
+      }
+
+      /* ========================
+	    3. css for animated slider
+      ========================== */
+
+      .nextSlide {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      .prevSlide {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+
+      .currentSlide {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      /* end of styling */
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <div class="header--logo">
+        <a href="../index.html">
+          <img alt="company-logo" src="../pictures/book.png" />
+          <span>Maple Books</span>
+        </a>
+      </div>
+      <div class="header--backdrop">
+        <img src="../pictures/header--backdrop-left.jpg" />
+      </div>
+    </header>
+
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="./books.html">Books</a>
+      <a href="./blog.html">Blog</a>
+      <a href="./references.html" class="active-page">References</a>
+      <a href="./contact.html">Contact Us</a>
+    </nav>
+
+    <!-- 
+      start of main content
+      the main content is defined as follows:
+
+        - The main content is a animated slider with references being slides.
+        - <main> consists of two <button> and a <div>.
+        - The <button> are used for toggling the slides with javascript.
+        - Refer to script for more information about the functionality of the buttons.
+        - The <div> is the container for references wrapped in <section>.
+        - Each <section> is structured as follows:
+          <section>
+            <flexbox div>
+              <figure>
+                Appropriate reference figure and figure caption.
+              </figure>
+            
+              <figure>
+                Appropriate use case figure and figure caption.
+              </figure>
+            </div>
+
+            <p>
+              Compare and contrast between the styles.
+            </p>
+          </section>
+
+    -->
+    <main>
+      <button onclick="prevIndex()">❮</button>
+      <div>
+        <section id="reference1">
+          <div class="reference-images">
+            <figure>
+              <a href="https://flutter.dev/">
+                <img
+                  src="../pictures/references/home reference.jpg"
+                  width="300"
+                  height="160"
+                >
+              </a>
+
+              <figcaption>Reference Card Layout: flutter.dev</figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="../pictures/references/home use.jpg"
+                width="480"
+                height="160"
+              />
+
+              <figcaption>Card Layout: Maple Books</figcaption>
+            </figure>
+          </div>
+          <p>
+            The above pictures show the reference image for the card layout and the final design in the website.
+            The reference card layout is a screenshot taken from flutter.dev. 
+            The card layout has been slightly modified and implemented.
+            Border and box shadow have been added and the width of the card is elongated compared to the reference. 
+            The similarity can be seen in the typography and overall layout.
+
+          </p>
+        </section>
+
+        <section id="reference2">
+          <div class="reference-images">
+            <figure>
+              <a href=https://www.abebooks.com/books">
+                <img
+                  src="../pictures/references/nav reference.jpg"
+                  width="540"
+                  height="96"
+              /></a>
+              <figcaption>
+                Reference Header and Navigation Bar: AbeBooks
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="../pictures/references/nav use.jpg"
+                width="560"
+                height="100"
+              /><br />
+              <figcaption>Header and Navigation Bar: Maple Books</figcaption>
+            </figure>
+          </div>
+          <p>
+            The above pictures show the reference image for the header and navigation bar and the final design in the website.
+            The reference header and navbar is a screenshot taken from AbeBooks. 
+            The header and navbar have been slightly modified and implemented.
+            The search bar has been removed and the colors are different. 
+            The similarity can be seen in the typography, hover state, logo positioning and overall layout.
+          </p>
+        </section>
+
+        <section id="reference3">
+          <div class="reference-images">
+            <figure>
+              <a href="https://www.barnesandnoble.com/">
+                <img
+                  src="../pictures/references/footer reference.jpg"
+                  width="460"
+                  height="100"
+              >
+            </a>
+              <figcaption>Reference Footer: Barnes & Noble</figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="../pictures/references/footer use.jpg"
+                width="480"
+                height="100"
+              >
+              <figcaption>Footer: Barnes & Noble</figcaption>
+            </figure>
+          </div>
+          <p>
+            The above pictures show the reference image for the footer and the final design in the website.
+            The reference footer is a screenshot taken from Barnes&Noble. 
+            The footer has been vastly modified and implemented.
+            A back to top button has been added for intra page link. The fonts and list items alignment are also different. 
+            The similarity can be seen in the general layout.
+          </p>
+        </section>
+
+        <section id="reference4">
+          <div class="reference-images" style="flex-direction: row">
+            <figure>
+              <a href="https://www.thriftbooks.com/">
+                <img
+                  src="../pictures/references/books reference.jpg"
+                  width="500"
+                  height="350"
+              ></a>
+              <figcaption>
+                Reference Product Landing Layout: thriftBooks
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="../pictures/references/books use.jpg"
+                width="500"
+                height="350"
+              >
+              <figcaption>Product Landing Layout: Maple Books</figcaption>
+            </figure>
+          </div>
+          <p>
+            The above pictures show the reference image for the product landing page and the final design in the website.
+            The reference product landing page is a screenshot taken from thriftBooks. 
+            The product landing page has been vastly modified and implemented.
+            The slider feature has been removed and the number of books visible at a time is decreased. 
+            The similarity can be seen in the layout individual book item.
+          </p>
+        </section>
+
+        <section id="reference5">
+          <div class="reference-images" style="flex-direction: row">
+            <figure>
+              <a href="https://universe.leagueoflegends.com/en_US/story/champion/ornn/">
+                <img
+                  src="../pictures/references/blog reference.jpg"
+                  width="500"
+                  height="360"
+                >
+              </a>
+              <figcaption>Reference Blog Layout: Riot Games</figcaption>
+            </figure>
+
+            <figure>
+              <img
+                src="../pictures/references/blog use.jpg"
+                width="500"
+                height="360"
+              >
+              <figcaption>Blog Layout: Maple Books</figcaption>
+            </figure>
+          </div>
+          <p>
+            The above pictures show the reference image for the blog page and the final design in the website.
+            The reference blog page is a screenshot taken from Riot Games. 
+            The blog page have been slightly modified and implemented.
+            The background image has been replaced with a background color.
+            The scroll event listener has been replaced with really big padding and margins.
+            The similarity can be seen in the typography and overall layout.
+          </p>
+        </section>
+        <!-- end of main content -->
+      </div>
+
+      <button onclick="nextIndex()">❯</button>
+    </main>
+
+    <footer>
+      <a href="#header"><button>Back to Top</button></a>
+
+      <div class="footer--content">
+        <ul>
+          <a href="./books.html">
+            <h1>Buy Books</h1>
+            <li>Best Selling</li>
+            <li>Top Genres</li>
+            <li>Monthly Picks</li>
+          </a>
+        </ul>
+
+        <ul>
+          <a href="./blog.html">
+            <h1>Our Blogs</h1>
+            <li>Internet and its impact</li>
+            <li>More coming soon...</li>
+          </a>
+        </ul>
+
+        <ul>
+          <a href="./references.html">
+            <h1>References</h1>
+            <li>AbeBooks</li>
+            <li>thriftBooks</li>
+            <li>Riot Games</li>
+            <li>Flutter</li>
+            <li>Barnes & Noble</li>
+          </a>
+        </ul>
+
+        <ul>
+          <a href="./contact.html">
+            <h1>Help and Support</h1>
+            <li>Contact Us</li>
+            <li>Tell more about yourself</li>
+          </a>
+        </ul>
+      </div>
+
+      <div class="footer--cpy">
+        While using this website, you agree to have read and accepted our terms
+        of use, cookies and privacy policy.<br />
+        Copyright &copy; Maple Books 2010-2022. All Rights Reserved. <br />
+        Butterfly Avenue 69, Kathmandu, Nepal
+      </div>
+    </footer>
+
+    <script type="text/javascript">
+      const ref1 = document.getElementById("reference1");
+      const ref2 = document.getElementById("reference2");
+      const ref3 = document.getElementById("reference3");
+      const ref4 = document.getElementById("reference4");
+      const ref5 = document.getElementById("reference5");
+
+      const array = [ref1, ref2, ref3, ref4, ref5];
+
+      //current slide to be displayed
+      let current = Math.floor(Math.random() * array.length);
+      changeDiv();
+
+
+      /*
+      nextIndex function increases the current index
+      */
+      function nextIndex() {
+        if (current < array.length - 1) {
+          current++;
+        } else {
+          current = 0;
+        }
+        changeDiv();
+      }
+
+
+      /*
+      prevIndex function decreases the current index
+      */
+      function prevIndex() {
+        if (current === 0) {
+          current = array.length - 1;
+        } else {
+          current--;
+        }
+        changeDiv();
+      }
+
+      /*
+      changeDiv function iterates through all items and does the following.
+        -initializes every slide with "nextSlide" class
+        -changes first slide to "currentSlide" class
+        -changes previous slide to with "prevSlide" class
+        -refer to styles for these classes
+      
+      */
+      function changeDiv() {
+        array.forEach((element, index) => {
+          element.classList.add("nextSlide");
+          element.classList.remove("currentSlide");
+          element.classList.remove("prevSlide");
+          if (index === current) {
+            element.classList.add("currentSlide");
+
+            element.classList.remove("nextSlide");
+            element.classList.remove("prevSlide");
+          }
+
+          if (
+            index === current - 1 ||
+            (index === array.length - 1 && current === 0)
+          ) {
+            element.classList.add("prevSlide");
+
+            element.classList.remove("currentSlide");
+            element.classList.remove("nextSlide");
+          }
+        }); 
+      }
+      
+      // function changeDiv() {
+      //   for (let i = 0; i < array.length; i++) {
+      //     if (i === current) {
+      //       array[i].style.display = "block";
+      //     } else {
+      //       array[i].style.display = "none";
+      //     }
+      //   }
+      // }
+
+    </script>
+  </body>
+</html>
